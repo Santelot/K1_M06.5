@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook Code Squad</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { width: 95%; margin: auto; }
+        .dropdown { margin-bottom: 20px; }
+        .time-title, .level-title { font-size: 1.2em; font-weight: bold; }
+        .activity { margin-bottom: 30px; }
+        .banner { background-color: #4CAF50; color: white; padding: 10px; cursor: pointer; }
+        .title { font-weight: bold; }
+        .subtitle { font-style: italic; }
+        .content { display: none; padding: 10px; border: 1px solid #ddd; }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Playbook Code Squad</h1>
+        
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateContent()">
+                <option value="50">50 minutos</option>
+                <option value="40">40 minutos</option>
+                <option value="30">30 minutos</option>
+            </select>
+        </div>
+
+        <div class="dropdown">
+            <label for="class-level">Nivel:</label>
+            <select id="class-level" onchange="updateContent()">
+                <option value="K1">K1</option>
+                <option value="K2">K2</option>
+                <option value="K3">K3</option>
+            </select>
+        </div>
+        
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+        <h2 id="selected-level" class="level-title">Nivel: K1</h2>
+
+        <!-- Actividad 0 -->
+        <div id="activity-0" class="activity">
+            <div class="banner" onclick="toggleContent('revision_materiales')">
+                <div class="title">📚 Actividad 0: Revisión de Materiales ⏰ Tiempo: N/A</div>
+                <div class="subtitle">Reproduce la DIAPOSITIVA 1 para revisar la lista de materiales.</div>
+            </div>
+            <div id="revision_materiales" class="content">
+                <table>
+                    <tr>
+                        <td><strong>PASO 1 (N/A):</strong> Reproduce la DIAPOSITIVA 1 para revisar la lista de materiales que tienes que tener listos para la misión.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Actividad 1 -->
+        <div id="activity-1" class="activity">
+            <div class="banner" onclick="toggleContent('bienvenida')">
+                <div class="title">🎉 Actividad 1: Bienvenida e Introducción ⏰ Tiempo: 1 minuto</div>
+                <div class="subtitle">Dar la bienvenida a los Genios y preparar el ambiente para el aprendizaje.</div>
+            </div>
+            <div id="bienvenida" class="content">
+                <table>
+                    <tr>
+                        <td><strong>PASO 1 (0.5 minutos):</strong> Reproduce la DIAPOSITIVA 2 'Code Squad' y saluda a los niños mientras muestras el equipo de Code Squad, luego introduce el tema del día y la necesidad de entrenar el cerebro para la misión.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Hola, genios! ¡Bienvenidos a una nueva misión del CODE SQUAD en el mundo mágico de los juguetes encantados! Hoy tenemos una gran tarea por delante: ¡organizar los juguetes siguiendo un patrón mágico para devolverles la vida! Pero antes de empezar, tenemos que preparar nuestros cerebros para el desafío, ¿listos? ¡Vamos allá!</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PASO 2 (0.5 minutos):</strong> Reproduce la DIAPOSITIVA 3 'Gimnasio' y explica que antes de iniciar la misión haremos un ejercicio para preparar nuestros cerebros.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> Ahora que estamos en el Gimnasio del CODE SQUAD, vamos a entrenar nuestros cerebros. Pongan mucha atención a la canción, porque nos ayudará a resolver cualquier problema que encontremos. ¡A prepararse!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 2 -->
+        <div id="activity-2" class="activity">
+            <div class="banner" onclick="toggleContent('baile_secuenciacion')">
+                <div class="title">💃 Actividad 2: Baile de Secuenciación ⏰ Tiempo: 2 minutos</div>
+                <div class="subtitle">Guiar a los niños en una actividad de secuenciación.</div>
+            </div>
+            <div id="baile_secuenciacion" class="content">
+                <table>
+                    <tr>
+                        <td><strong>PASO 1 (2 minutos):</strong> Reproduce la DIAPOSITIVA 4 y guía a los niños para que sigan las instrucciones de la canción de secuenciación.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> Ahora que estamos listos, ¡es hora de poner a prueba nuestro entrenamiento! Vamos a seguir las indicaciones de la canción. No se preocupen si la primera vez no pueden seguir todo lo que dice la canción, para eso es el gimnasio, para irnos ejercitando y que cada día sea más fácil.</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 3 -->
+        <div id="activity-3" class="activity">
+            <div class="banner" onclick="toggleContent('planteamiento_problema')">
+                <div class="title">🛠️ Actividad 3: Planteamiento del Problema ⏰ Tiempo: 2 minutos</div>
+                <div class="subtitle">Introducir el problema que los estudiantes deben resolver.</div>
+            </div>
+            <div id="planteamiento_problema" class="content">
+                <table>
+                    <tr>
+                        <td><strong>PASO 1 (1 minuto):</strong> Reproduce la DIAPOSITIVA 5 "La juguetería encantada" y narra la historia con entusiasmo, presentando los personajes y el escenario de la misión.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Genios del CODE SQUAD! Hoy nos encontramos en una tienda mágica donde los juguetes cobran vida. Aquí vive Tito el Tren, junto a Lola la Muñeca y Paco el Dinosaurio. Cada juguete tiene su lugar especial, pero algo terrible ha sucedido: ¡todo está desordenado! Los juguetes están fuera de lugar, y si no volvemos a organizarlos siguiendo el patrón correcto, la magia desaparecerá y los juguetes ya no podrán moverse. ¡Tenemos que ayudar a Tito, Lola y Paco antes de que la tienda abra!</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PASO 2 (1 minuto):</strong> Reproduce la DIAPOSITIVA 6 "Ayuda a los juguetes" y explica el reto que enfrentará el CODE SQUAD hoy, detallando cómo deben organizar los juguetes según el patrón correcto.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> El reto del día es reorganizar todos los juguetes siguiendo un patrón de colores y tamaños. Cada juguete tiene su propio lugar, y solo colocándolos en el orden correcto podrán volver a moverse. El CODE SQUAD debe ayudar a identificar el patrón y completar la secuencia antes de que sea demasiado tarde. ¡Es hora de poner a prueba nuestras habilidades y salvar la magia de la tienda!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad 4 -->
+        <div id="activity-4" class="activity">
+            <div class="banner" onclick="toggleContent('formacion_parejas')">
+                <div class="title">🤝 Actividad 4: Formación de Parejas ⏰ Tiempo: 3 minutos</div>
+                <div class="subtitle">Formar equipos de trabajo y preparar a los estudiantes para la misión.</div>
+            </div>
+            <div id="formacion_parejas" class="content">
+                <table>
+                    <tr>
+                        <td><strong>PASO 1 (2 minutos):</strong> Reproduce la DIAPOSITIVA 7 'Formación de Equipos', explica la importancia de trabajar en equipo y junta a los niños en pares para trabajar en la misión.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> ¡Equipo CODE SQUAD! Cuando todos trabajamos juntos, podemos lograr cosas increíbles. Como dice el dicho: 'Si quieres llegar rápido, ve solo. Si quieres llegar lejos, ve acompañado'. Así que cuando tengan una idea, compártanla con su compañero. ¡Juntos podemos lograr cosas asombrosas! ¡Vamos a unir nuestras fuerzas y a divertirnos aprendiendo! Busquen una pareja para trabajar juntos el día de hoy.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PASO 2 (1 minuto):</strong> Reproduce la DIAPOSITIVA 8 "CODE SQUAD LISTO" Verifica que todos los niños estén emparejados y organizados para trabajar.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> ¿Todos tienen a su compañero? ¡Perfecto! Ahora que están listos, recuerden que trabajar en pareja significa compartir y ayudarse unos a otros. ¡Cuanto más trabajen juntos, más divertida será la misión!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividades dinámicas -->
+        <div id="activity-1" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_1')">
+                <div class="title">🎉 Actividad 1: Bienvenida e Introducción ⏰ Tiempo: Variable</div>
+                <div class="subtitle">Dar la bienvenida y preparar el ambiente para el aprendizaje.</div>
+            </div>
+            <div id="actividad_1" class="content">
+                <table id="activity-1-content"></table>
+            </div>
+        </div>
+
+        <div id="activity-2" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_2')">
+                <div class="title">💃 Actividad 2: Baile de Secuenciación ⏰ Tiempo: Variable</div>
+                <div class="subtitle">Guiar a los niños en una actividad de secuenciación.</div>
+            </div>
+            <div id="actividad_2" class="content">
+                <table id="activity-2-content"></table>
+            </div>
+        </div>
+
+        <div id="activity-3" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_3')">
+                <div class="title">🛠️ Actividad 3: Planteamiento del Problema ⏰ Tiempo: Variable</div>
+                <div class="subtitle">Presentar la historia y el reto que deben enfrentar los niños.</div>
+            </div>
+            <div id="actividad_3" class="content">
+                <table id="activity-3-content"></table>
+            </div>
+        </div>
+
+        <div id="activity-4" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_4')">
+                <div class="title">🤝 Actividad 4: Formación de Parejas ⏰ Tiempo: Variable</div>
+                <div class="subtitle">Formar equipos para trabajar juntos en la misión.</div>
+            </div>
+            <div id="actividad_4" class="content">
+                <table id="activity-4-content"></table>
+            </div>
+        </div>
+
+        <div id="activity-5" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_5')">
+                <div class="title">⚙️ Actividad 5: Explicación del Reto de Codificación ⏰ Tiempo: Variable</div>
+                <div class="subtitle">Explicar cómo organizar los juguetes utilizando bloques de colores.</div>
+            </div>
+            <div id="actividad_5" class="content">
+                <table id="activity-5-content"></table>
+            </div>
+        </div>
+
+        <div id="activity-6" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_6')">
+                <div class="title">🔧 Actividad 6: Construcción con Bloques ⏰ Tiempo: Variable</div>
+                <div class="subtitle">Ensamblar los juguetes según el código.</div>
+            </div>
+            <div id="actividad_6" class="content">
+                <table id="activity-6-content"></table>
+            </div>
+        </div>
+
+        <div id="activity-7" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_7')">
+                <div class="title">⚠️ Actividad 7: Mensaje del Cuartel ⏰ Tiempo: Variable</div>
+                <div class="subtitle">Presentar un obstáculo adicional en la misión.</div>
+            </div>
+            <div id="actividad_7" class="content">
+                <table id="activity-7-content"></table>
+            </div>
+        </div>
+
+        <div id="activity-8" class="activity">
+            <div class="banner" onclick="toggleContent('actividad_8')">
+                <div class="title">🎉 Actividad 8: Conclusión y Reflexión ⏰ Tiempo: 5 minutos</div>
+                <div class="subtitle">Felicitar a los niños y hacer preguntas de reflexión.</div>
+            </div>
+            <div id="actividad_8" class="content">
+                <table>
+                    <tr>
+                        <td><strong>PASO 1 (5 minutos):</strong> Reproduce la DIAPOSITIVA 26 'Conclusión y Cierre', felicita al CODE SQUAD por su trabajo.</td>
+                        <td><strong>DIÁLOGO SUGERIDO:</strong> ¡CODE SQUAD, lo logramos! Gracias a su increíble trabajo, los juguetes están felices. Reflexionemos sobre lo que aprendimos hoy: 1. ¿Por qué fue importante trabajar en equipo? 2. ¿Cómo nos ayudaron los bloques de color? 3. ¿Qué hicimos cuando encontramos el obstáculo y cómo lo resolvimos juntos?</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+
+        function updateContent() {
+            var time = document.getElementById("class-time").value;
+            var level = document.getElementById("class-level").value;
+            document.getElementById("selected-time").innerText = "Tiempo efectivo de clase: " + time + " minutos";
+            document.getElementById("selected-level").innerText = "Nivel: " + level;
+
+            // Insertar dinámicamente las actividades según nivel y tiempo
+            var steps = {
+                "K1": {
+                    "5": [
+                          { "step": 1, "time": { "30": 1, "40": 1, "50": 1 }, "accion": "Reproduce la DIAPOSITIVA 9 'Ejemplo Codificación K1' y explica cómo el CODE SQUAD va a ayudar a organizar los juguetes utilizando bloques de colores. Explica cómo deben representarse los juguetes.", "dialogo": "¡CODE SQUAD! Para que Tito el Tren, Paco el Dinosaurio, y Lola la Muñeca puedan moverse de nuevo, vamos a crear un código usando bloques de color. Vamos a representarlos con bloques de color como está en el ejemplo." },
+                          { "step": 2, "time": { "30": 2, "40": 2, "50": 2 }, "accion": "Reproduce la DIAPOSITIVA 10 'Entregar Materiales K1' y distribuye los materiales.", "dialogo": "Aquí tienen su papel y colores. Dibujen a los juguetes y asignen bloques de colores para representarlos. ¡A codificar!" },
+                          { "step": 3, "time": { "30": 5, "40": 7, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 11 'Dibujar Código K1' y supervisa el proceso de creación del código en papel. Acompaña y guía el proceso.", "dialogo": "¡Vamos CODE SQUAD! Trabajen juntos para crear su código. ¡Recuerden, cada juguete debe tener su propio color en nuestro código!" }
+                         ],
+                    "6": [
+                          { "step": 1, "time": { "30": 2, "40": 2, "50": 2 }, "accion": "Reproduce la DIAPOSITIVA 18 'Recoger Códigos' y dirige a los Genios para que intercambien los códigos que hicieron.", "dialogo": "¡CODE SQUAD! Vamos a intercambiar los códigos que crearon. Cada equipo recibirá un código diferente para organizar los juguetes en el orden correcto. ¡Vamos a ver qué tan bien pueden leer los códigos de sus compañeros!" },
+                          { "step": 2, "time": { "30": 7, "40": 10, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 19 'Challenge de Reconocimiento de Patrones K1', entrega los códigos a los equipos y que inicien a construir.", "dialogo": "¡Adelante, CODE SQUAD! Usen el código que recibieron para organizar los juguetes en el orden correcto. Recuerden seguir el patrón que está en la pantalla. Tienen que repetir el patrón hasta que usen todos sus bloques." }
+                         ],
+                    "7": [
+                          { "step": 1, "time": { "30": 3, "40": 4, "50": 5 }, "accion": "Reproduce la DIAPOSITIVA 22 y explica el obstáculo a los Genios.", "dialogo": "¡CODE SQUAD! ¡Tenemos una emergencia! Tito el Tren se salió del patrón y ahora todos los juguetes están desordenados. Pero no se preocupen, el cuartel general nos ha enviado un nuevo código que debemos seguir para ayudar a los juguetes. ¡Vamos a calmarnos y resolver esto juntos!" },
+                          { "step": 2, "time": { "30": 7, "40": 10, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 23 'Código de Rescate K1' y motiva a los Genios a seguir el código proyectado en la pantalla.", "dialogo": "Aquí está el 'Código de Rescate'. Este es el código especial que necesitamos seguir para que todos los juguetes se coloquen en su lugar. Vamos a observarlo bien y a seguir el patrón con cuidado. ¡Adelante, CODE SQUAD!" }
+                         ]
+                },
+                "K2": {
+                    "5": [
+                          { "step": 1, "time": { "30": 1, "40": 1, "50": 1 }, "accion": "Reproduce la DIAPOSITIVA 12 'Ejemplo Codificación K2' y explica cómo el CODE SQUAD va a ayudar a organizar los juguetes utilizando bloques de colores. Explica cómo deben representarse los juguetes.", "dialogo": "¡CODE SQUAD! Para que Tito, Paco, Lola y el Oso de Peluche puedan moverse de nuevo, vamos a crear un código usando bloques de color. Vamos a representarlos con bloques de color como está en el ejemplo." },
+                          { "step": 2, "time": { "30": 2, "40": 2, "50": 2 }, "accion": "Reproduce la DIAPOSITIVA 13 'Entregar Materiales K2' y distribuye los materiales.", "dialogo": "Aquí tienen su papel y colores. Dibujen a los juguetes y asignen bloques de colores para representarlos. ¡A codificar!" },
+                          { "step": 3, "time": { "30": 5, "40": 7, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 14 'Dibujar Código K2' y supervisa el proceso de creación del código en papel. Acompaña y guía el proceso.", "dialogo": "¡Vamos CODE SQUAD! Trabajen juntos para crear su código. ¡Recuerden, cada juguete debe tener su propio color en nuestro código!" }
+                         ],
+                    "6": [
+                          { "step": 1, "time": { "30": 2, "40": 2, "50": 2 }, "accion": "Reproduce la DIAPOSITIVA 18 'Recoger Códigos' y dirige a los Genios para que intercambien los códigos que hicieron.", "dialogo": "¡CODE SQUAD! Vamos a intercambiar los códigos que crearon. Cada equipo recibirá un código diferente para organizar los juguetes en el orden correcto. ¡Vamos a ver qué tan bien pueden leer los códigos de sus compañeros!" },
+                          { "step": 2, "time": { "30": 7, "40": 10, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 20 'Challenge de Reconocimiento de Patrones K2', entrega los códigos a los equipos y que inicien a construir.", "dialogo": "¡Adelante, CODE SQUAD! Usen el código que recibieron para organizar los juguetes en el orden correcto. Recuerden seguir el patrón que está en la pantalla. Tienen que repetir el patrón hasta que usen todos sus bloques." }
+                         ],
+                    "7": [
+                          { "step": 1, "time": { "30": 3, "40": 4, "50": 5 }, "accion": "Reproduce la DIAPOSITIVA 22 y explica el obstáculo a los Genios.", "dialogo": "¡CODE SQUAD! ¡Tenemos una emergencia! Tito el Tren se salió del patrón y ahora todos los juguetes están desordenados. Pero no se preocupen, el cuartel general nos ha enviado un nuevo código que debemos seguir para ayudar a los juguetes. ¡Vamos a calmarnos y resolver esto juntos!" },
+                          { "step": 2, "time": { "30": 7, "40": 10, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 24 'Código de Rescate K2' y motiva a los Genios a seguir el código proyectado en la pantalla.", "dialogo": "Aquí está el 'Código de Rescate'. Este es el código especial que necesitamos seguir para que todos los juguetes se coloquen en su lugar. Vamos a observarlo bien y a seguir el patrón con cuidado. ¡Adelante, CODE SQUAD!" }
+                         ]
+                },
+                "K3": {
+                    "5": [
+                          { "step": 1, "time": { "30": 1, "40": 1, "50": 1 }, "accion": "Reproduce la DIAPOSITIVA 15 'Ejemplo Codificación K3' y explica cómo el CODE SQUAD va a ayudar a organizar los juguetes utilizando bloques de colores. Explica cómo deben representarse los juguetes.", "dialogo": "¡CODE SQUAD! Para que Tito, Paco, Lola, el Oso de Peluche y el Avión puedan moverse de nuevo, vamos a crear un código usando bloques de color. Vamos a representarlos con bloques de color como está en el ejemplo." },
+                          { "step": 2, "time": { "30": 2, "40": 2, "50": 2 }, "accion": "Reproduce la DIAPOSITIVA 16 'Entregar Materiales K3' y distribuye los materiales.", "dialogo": "Aquí tienen su papel y colores. Dibujen a los juguetes y asignen bloques de colores para representarlos. ¡A codificar!" },
+                          { "step": 3, "time": { "30": 5, "40": 7, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 17 'Dibujar Código K3' y supervisa el proceso de creación del código en papel. Acompaña y guía el proceso.", "dialogo": "¡Vamos CODE SQUAD! Trabajen juntos para crear su código. ¡Recuerden, cada juguete debe tener su propio color en nuestro código!" }
+                         ],
+                    "6": [
+                          { "step": 1, "time": { "30": 2, "40": 2, "50": 2 }, "accion": "Reproduce la DIAPOSITIVA 18 'Recoger Códigos' y dirige a los Genios para que intercambien los códigos que hicieron.", "dialogo": "¡CODE SQUAD! Vamos a intercambiar los códigos que crearon. Cada equipo recibirá un código diferente para organizar los juguetes en el orden correcto. ¡Vamos a ver qué tan bien pueden leer los códigos de sus compañeros!" },
+                          { "step": 2, "time": { "30": 7, "40": 10, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 21 'Challenge de Reconocimiento de Patrones K3', entrega los códigos a los equipos y que inicien a construir.", "dialogo": "¡Adelante, CODE SQUAD! Usen el código que recibieron para organizar los juguetes en el orden correcto. Recuerden seguir el patrón que está en la pantalla. Y para ustedes hay un reto especial. Si el juguete es grande el bloque debe de estar parado. Si el juguete es pequeño, tiene que estar acostado. Repitan el patrón hasta que usen todos sus bloques." }
+                         ],
+                    "7": [
+                          { "step": 1, "time": { "30": 3, "40": 4, "50": 5 }, "accion": "Reproduce la DIAPOSITIVA 22 y explica el obstáculo a los Genios.", "dialogo": "¡CODE SQUAD! ¡Tenemos una emergencia! Tito el Tren se salió del patrón y ahora todos los juguetes están desordenados. Pero no se preocupen, el cuartel general nos ha enviado un nuevo código que debemos seguir para ayudar a los juguetes. ¡Vamos a calmarnos y resolver esto juntos!" },
+                          { "step": 2, "time": { "30": 7, "40": 10, "50": 10 }, "accion": "Reproduce la DIAPOSITIVA 25 'Código de Rescate K3' y motiva a los Genios a seguir el código proyectado en la pantalla.", "dialogo": "Aquí está el 'Código de Rescate'. Este es el código especial que necesitamos seguir para que todos los juguetes se coloquen en su lugar. Vamos a observarlo bien y a seguir el patrón con cuidado. ¡Adelante, CODE SQUAD!" }
+                         ]
+                }
+            };
+
+            renderActivitySteps("activity-5-content", steps[level]["5"], time);
+            renderActivitySteps("activity-6-content", steps[level]["6"], time);
+            renderActivitySteps("activity-7-content", steps[level]["7"], time);
+        }
+
+        function renderActivitySteps(contentId, steps, time) {
+            var contentContainer = document.getElementById(contentId);
+            contentContainer.innerHTML = "";
+            steps.forEach(function(step) {
+                if (step.time[time] > 0) {
+                    var row = document.createElement("tr");
+                    var stepCell = document.createElement("td");
+                    var dialogCell = document.createElement("td");
+
+                    stepCell.innerHTML = "<strong>PASO " + step.step + " (" + step.time[time] + " minutos):</strong> " + step.accion;
+                    dialogCell.innerHTML = "<strong>DIÁLOGO SUGERIDO:</strong> " + step.dialogo;
+
+                    row.appendChild(stepCell);
+                    row.appendChild(dialogCell);
+                    contentContainer.appendChild(row);
+                }
+            });
+        }
+
+        updateContent();
+    </script>
+</body>
+</html>
